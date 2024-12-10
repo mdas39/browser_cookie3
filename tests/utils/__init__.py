@@ -11,6 +11,7 @@ class BrowserName:
     VIVALDI = 'vivaldi'
     FIREFOX = 'firefox'
     LIBREWOLF = 'librewolf'
+    ZEN = 'zen'
 
 
 logger = logging.getLogger('browser_cookie3_test')

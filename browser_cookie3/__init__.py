@@ -1023,6 +1023,27 @@ class LibreWolf(FirefoxBased):
         super().__init__('LibreWolf', cookie_file, domain_name, **args)
 
 
+class Zen(FirefoxBased):
+    """Class for Zen Browser"""
+
+    def __init__(self, cookie_file=None, domain_name=""):
+        args = {
+            'linux_data_dirs': [
+                '~/snap/zen/common/.zen',
+                '~/.zen'
+            ],
+            'windows_data_dirs': [
+                {'env': 'APPDATA', 'path': 'zen'},
+                {'env': 'LOCALAPPDATA', 'path': 'zen'}
+            ],
+            'osx_data_dirs': [
+                '~/Library/Application Support/zen'
+            ]
+            
+        }
+        super().__init__('zen', cookie_file, domain_name, **args)
+
+
 class Safari:
     """Class for Safari"""
 
@@ -1215,6 +1236,13 @@ def librewolf(cookie_file=None, domain_name=""):
     pass in a domain name to only load cookies from the specified domain
     """
     return LibreWolf(cookie_file, domain_name).load()
+
+
+def zen(cookie_file=None, domain_name=""):
+    """Returns a cookiejar of the cookies and sessions used by Zen Browser. Optionally
+    pass in a domain name to only load cookies from the specified domain
+    """
+    return Zen(cookie_file, domain_name).load()
 
 
 def safari(cookie_file=None, domain_name=""):

@@ -68,6 +68,16 @@ BIN_LOCATIONS = {
         # Not tested
         'macos': ['/Applications/LibreWolf.app/Contents/MacOS/LibreWolf']
     },
+        BrowserName.ZEN: {
+        'linux': ['/usr/bin/zen'],
+        'windows': [
+            r'C:\Program Files (x86)\zen\zen.exe',
+            r'C:\Program Files\zen\zen.exe',
+            fr'C:\Users\{get_username()}\AppData\Local\zen\zen.exe'
+        ],
+        # Not tested
+        'macos': ['/Applications/LibreWolf.app/Contents/MacOS/LibreWolf']
+    },
     BrowserName.OPERA: {
         'linux': ['/usr/bin/opera'],
         'windows': [

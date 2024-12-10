@@ -19,7 +19,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.opera import OperaDriverManager
 
 from browser_cookie3 import (brave, chrome, chromium, edge, firefox, librewolf,
-                             load, opera, opera_gx, vivaldi)
+                             load, opera, opera_gx, vivaldi, zen)
 
 from .utils import BrowserName, logger
 from .utils.browser_paths import BinaryLocation
@@ -248,6 +248,16 @@ class Test(unittest.TestCase):
 
         self.__setup_firefox_based(profile_containing_dir, binary_location)
         self.__test_browser(librewolf, cookie_path)
+
+    def test_zen(self):
+        profile_containing_dir = os.path.join(self.__temp_dir, '.zen')
+        cookie_path = os.path.join(
+            profile_containing_dir, FIREFOX_BASED_PROFILE_DIR_NAME, 'cookies.sqlite')
+        binary_location = self.__binary_location.get(BrowserName.ZEN)
+
+        self.__setup_firefox_based(profile_containing_dir, binary_location)
+        self.__test_browser(zen, cookie_path)
+
 
     def test_opera(self):
         self.__setup_opera_based(self.__binary_location.get(BrowserName.OPERA))
